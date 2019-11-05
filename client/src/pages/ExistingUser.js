@@ -7,7 +7,8 @@ import { Col, Row} from "../components/Grid";
 class ExistingUser extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    username: ""
   };
 
   componentWillMount() {
@@ -24,31 +25,20 @@ class ExistingUser extends Component {
 
  
   getUsername = () => {
+    this.props.history.push ("/matches")
     alert("Welcome Back..." + this.state.username + " Let's see your matches for today")
-    this.props.history.push ("/matches");
+    
 };
 
 
-handleformSubmit = () => {
-  API.getThisUser(this.props.match.params.id)
-    .then(response => {
-      this.setState({
-      id: response.data.id,
-      email: response.data.email,
-      username: response.data.username})
-      this.getUsername();})
-      .catch(err => {
-        throw err; });}
-      
-// handleformSubmit = () => {
-//   API.getThisUser()
-//   .then(response => {
-//     this.setState({
-//     username: response.data.username})
-//     console.log(response)})
-//   .catch(err => {
-//     throw err; });
-// };
+handleformSubmit = (event) => {
+  event.preventDefault();
+  API.getThisUser({
+    email: this.state.email,
+    username: this.state.username,
+  }).then(() => this.getUsername())
+  .catch(err => { throw err });
+};
 
 
   render() {

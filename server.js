@@ -7,12 +7,14 @@ var PORT = process.env.PORT || 3001;
 var app = express()
 var models = require("./models");
 var routes = require('./routes');
+var bodyParser = require ("body-parser")
 
 
 
 // Middleware
 require('http-proxy-middleware');
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}))
+// app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 

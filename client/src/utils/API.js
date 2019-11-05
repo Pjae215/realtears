@@ -23,11 +23,17 @@ export default {
   getAllUsers: function() {
     return axios.get("/api/records");
   },
+
   // gets a record with the given email
-  getThisUser: function(id) {
-    return axios.get("/api/records/" + id);
+  getThisUser: function() {
+    // return new Promise((resolve, reject)=> {
+      return axios.get("/api/records");
+},
+
+
+    
     // return axios.get("/api/records/" + email);
-  },
+
   // Saves an book to the database
   saveNewUser: function(postData) {
     return axios.post("/api/records", postData);

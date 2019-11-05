@@ -3,14 +3,14 @@ const appController = require("../../controllers/appController.js");
 
 // Matches with "/api/apps"
 router.route("/")
-  // .get(appController.findAll)
+  .get(appController.findById)
   .post(appController.create);
 
 
 // Matches with "/api/books/:email"
 router
   .route("/:id")
-  .get(appController.findById)
+  // .get(appController.findById)
   .put(appController.update)
   .delete(appController.remove);
 
