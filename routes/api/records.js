@@ -3,7 +3,7 @@ const appController = require("../../controllers/appController.js");
 
 // Matches with "/api/apps"
 router.route("/")
-  .get(appController.findAll)
+  // .get(appController.findAll)
   .post(appController.create);
 
 

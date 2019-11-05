@@ -24,8 +24,8 @@ export default {
     return axios.get("/api/records");
   },
   // gets a record with the given email
-  getThisUser: function(q) {
-    return axios.get("/api/records", { params: { q: "email:" + q } });
+  getThisUser: function(id) {
+    return axios.get("/api/records/" + id);
     // return axios.get("/api/records/" + email);
   },
   // Saves an book to the database

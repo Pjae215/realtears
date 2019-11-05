@@ -18,8 +18,7 @@ class ExistingUser extends Component {
   handleInputChange = event => {
      const { name, value } = event.target;
       this.setState({
-      [name]: value
-    });
+      [name]: value});
   };
 
 
@@ -31,9 +30,11 @@ class ExistingUser extends Component {
 
 
 handleformSubmit = () => {
-  API.getThisUser()
+  API.getThisUser(this.props.match.params.id)
     .then(response => {
       this.setState({
+      id: response.data.id,
+      email: response.data.email,
       username: response.data.username})
       this.getUsername();})
       .catch(err => {
