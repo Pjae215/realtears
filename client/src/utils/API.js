@@ -26,13 +26,10 @@ export default {
 
   // gets a record with the given email
   getThisUser: function() {
-    // return new Promise((resolve, reject)=> {
       return axios.get("/api/records");
 },
 
 
-    
-    // return axios.get("/api/records/" + email);
 
   // Saves an book to the database
   saveNewUser: function(postData) {

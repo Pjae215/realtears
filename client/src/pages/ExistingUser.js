@@ -35,6 +35,7 @@ handleformSubmit = (event) => {
   event.preventDefault();
   API.getThisUser({
     email: this.state.email,
+    password: this.state.password,
     username: this.state.username,
   }).then(() => this.getUsername())
   .catch(err => { throw err });
